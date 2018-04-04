@@ -14,7 +14,7 @@ import it.objectmethod.world.model.domain.City;
 public class CityDao implements IDaoCity {
 
 
-	public List<City> getCitiesByCountry(String countryCode) {
+	public List<City> getCitiesByCountry(String countryCode) {//TODO chiudere rs, ps e conn
 		
 		List<City> cities = new ArrayList<City>();
 		

@@ -53,7 +53,7 @@ public class CountryDao implements IDaoCountry{
 				continents.add(continente);
 			}
 			
-			conn.close();
+			conn.close(); //TODO in ordine rs, state e conn
 			state.close();
 			rs.close();
 			

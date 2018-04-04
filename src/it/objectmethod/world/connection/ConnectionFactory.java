@@ -1,9 +1,11 @@
 package it.objectmethod.world.connection;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class ConnectionFactory {
-	//ciao ivan lo so
+	
+	//N.B: Ricordarsi di importare solo le classi che ci servono e lasciar fare il lavoro ad eclipse, non importare interi package a mano
 
 	static final String driver_db = "com.mysql.jdbc.Driver";
 	static final String URL_db = "jdbc:mysql://localhost/world";

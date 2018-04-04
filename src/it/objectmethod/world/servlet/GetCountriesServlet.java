@@ -17,7 +17,7 @@ public class GetCountriesServlet extends HttpServlet{
 		String continent = request.getParameter("thecontinent");
 		request.getSession().setAttribute("continent", continent);
 		CountryDao country = new CountryDao();	
-		request.setAttribute("lista", country.getCountriesByContinent(continent));
+		request.setAttribute("lista", country.getCountriesByContinent(continent));//TODO spostare in altra riga e passare una variabile di tipo List
 		request.getRequestDispatcher("Country.jsp").forward(request, response);
 	}
 }

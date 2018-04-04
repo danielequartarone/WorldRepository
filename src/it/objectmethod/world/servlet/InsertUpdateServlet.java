@@ -29,7 +29,7 @@ public class InsertUpdateServlet extends HttpServlet{
 		CityDao city = new CityDao();
 		
 		if(id>0) {
-			city.updateCity(name, code, population, id);
+			city.updateCity(name, code, population, id); //TODO check se davvero effettuo update o insert, ps.executeUpdate ritorna int
 		}
 		else {
 			city.insertCity(name, code, population);

@@ -2,7 +2,7 @@ package it.objectmethod.world.model.domain;
 
 public class City {
 	
-	private String name, code;
+	private String name, code; //TODO refactoring code in countryCode
 	private String population;
 	private int id;
 	
