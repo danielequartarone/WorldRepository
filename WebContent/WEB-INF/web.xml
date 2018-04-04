@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>World</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>print-continent</servlet-name>
+    <servlet-class>it.objectmethod.world.servlet.GetContinentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>print-countries</servlet-name>
+    <servlet-class>it.objectmethod.world.servlet.GetCountriesServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>print-cities</servlet-name>
+    <servlet-class> it.objectmethod.world.servlet.GetCityServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  <servlet-name> delete-city</servlet-name>
+  <servlet-class>it.objectmethod.world.servlet.DelCityServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  <servlet-name> edit-city</servlet-name>
+  <servlet-class>it.objectmethod.world.servlet.EditServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>insertUpdate-city</servlet-name>
+  <servlet-class> it.objectmethod.world.servlet.InsertUpdateServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>print-continent</servlet-name>
+    <url-pattern>/continent</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>print-countries</servlet-name>
+    <url-pattern>/countries</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>print-cities</servlet-name>
+    <url-pattern>/cities</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name> delete-city</servlet-name>
+  <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name> edit-city</servlet-name>
+  <url-pattern> /editCity</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+  <servlet-name>insertUpdate-city</servlet-name>
+  <url-pattern>/insertUpdate</url-pattern>
+  </servlet-mapping>
+</web-app>
