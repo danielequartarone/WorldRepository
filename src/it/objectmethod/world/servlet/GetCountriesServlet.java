@@ -13,11 +13,11 @@ import it.objectmethod.world.model.dao.impl.CountryDao;
 public class GetCountriesServlet extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws HTTPException, IOException, ServletException{
+		
 		String continent = request.getParameter("thecontinent");
 		request.getSession().setAttribute("continent", continent);
 		CountryDao country = new CountryDao();	
 		request.setAttribute("lista", country.getCountriesByContinent(continent));
 		request.getRequestDispatcher("Country.jsp").forward(request, response);
 	}
-
 }

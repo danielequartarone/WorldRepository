@@ -22,10 +22,10 @@ table, th, td {
 			<tr>
 				<th>Stati</th>
 			</tr>
-			<c:forEach items="${lista}" var="cont">
+			<c:forEach items="${lista}" var="tmp">
 				<tr>
-					<td><a href="/World/cities?thecountry=${cont.code}">
-							${cont.name}</a><br></td>
+					<td><a href="/World/cities?thecountry=${tmp.code}">
+							${tmp.name}</a><br></td>
 				</tr>
 			</c:forEach>
 		</table>

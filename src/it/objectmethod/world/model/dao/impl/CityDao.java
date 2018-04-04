@@ -15,7 +15,9 @@ public class CityDao implements IDaoCity {
 
 
 	public List<City> getCitiesByCountry(String countryCode) {
+		
 		List<City> cities = new ArrayList<City>();
+		
 		try {
 
 			Connection conn= ConnectionFactory.getConnection();
@@ -70,18 +72,21 @@ public class CityDao implements IDaoCity {
 	}
 
 	public void delCityByID(int id) {
+		
 		int righeModificate=0;
+		
 		try {
 			Connection conn= ConnectionFactory.getConnection();
 			String sql = "DELETE FROM city WHERE city.id = ?";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
-			System.out.println(sql);
+			
 			righeModificate=ps.executeUpdate();
-			System.out.println(righeModificate);
+			
 			ps.close();
 			conn.close();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

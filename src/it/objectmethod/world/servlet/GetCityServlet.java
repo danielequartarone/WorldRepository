@@ -17,11 +17,9 @@ public class GetCityServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws HTTPException, IOException, ServletException{
 
 		String country = request.getParameter("thecountry");
-		String continent = request.getParameter("continent");
 		CityDao city = new CityDao();
 		List<City> cities = city.getCitiesByCountry(country);
 		request.setAttribute("cities", cities);
-		request.setAttribute("cont", continent);
 		request.getRequestDispatcher("City.jsp").forward(request, response);
 	}
 }

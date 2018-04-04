@@ -16,8 +16,10 @@ table, th, td {
 <body>
 
 	<div align="center">
-		<a href="/World/countries?thecontinent=${cont}">Return to
+		<a href="/World/countries?thecontinent=${continent}">Return to
 			countries</a><br> <br>
+			<p>${stringaSalvataggio}</p>
+		<br><br>
 		<form action="editCity">
 			<input type="hidden" name="editThis" value=0> 
 			<input type="submit" value="Add City"><br><br>

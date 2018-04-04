@@ -28,6 +28,11 @@ public class CountryDao implements IDaoCountry{
 				cb.setContinent(rs.getString("Continent"));
 				countries.add(cb);
 			}
+			
+			conn.close();
+			ps.close();
+			rs.close();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -47,6 +52,11 @@ public class CountryDao implements IDaoCountry{
 				String continente =rs.getString("Continent");
 				continents.add(continente);
 			}
+			
+			conn.close();
+			state.close();
+			rs.close();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -54,24 +64,32 @@ public class CountryDao implements IDaoCountry{
 		return continents;
 	}
 	
-	public static List<String> getAllCountries(){
-		List<String> countries = new ArrayList<>();
+	public List<Country> getAllCountries(){
+		List<Country> countries = new ArrayList<>();
 		try {
 			Connection conn= ConnectionFactory.getConnection();
-			String sql = "Select country.code FROM country";						
+			String sql = "Select * FROM country";						
 			Statement state = conn.createStatement();
 			ResultSet rs = state.executeQuery(sql);
 			
 			while(rs.next()) {
-				String continente =rs.getString("Code");
-				countries.add(continente);
+				Country cb = new Country();
+				cb.setName(rs.getString("Name"));
+				cb.setCode(rs.getString("Code"));
+				cb.setContinent(rs.getString("Continent"));
+				countries.add(cb);
 			}
+			
+			
+			conn.close();
+			state.close();
+			rs.close();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 		return countries;
-		
 	}
 
 }

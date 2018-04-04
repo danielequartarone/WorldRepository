@@ -16,7 +16,7 @@ public class InsertUpdateServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		String idstring=request.getParameter("id");
-		String name = request.getParameter("nome");
+		String name = request.getParameter("citta");
 		String code = request.getParameter("code");	
 		String popolazione = request.getParameter("popolazione");
 		int population=0;
@@ -26,22 +26,17 @@ public class InsertUpdateServlet extends HttpServlet{
 		
 		int id = Integer.parseInt(idstring);
 		
-		String datiSalvati = "Dati NON salvati correttamente";
-		
 		CityDao city = new CityDao();
 		
 		if(id>0) {
 			city.updateCity(name, code, population, id);
-			datiSalvati = "Dati salvati correttamente";
 		}
 		else {
 			city.insertCity(name, code, population);
-			datiSalvati = "Dati salvati correttamente";
 		}
-		request.setAttribute("nome", name);
-		request.setAttribute("code", code);
-		request.setAttribute("popolazione", population);
+		
+		String datiSalvati = "Dati salvati correttamente";
 		request.setAttribute("stringaSalvataggio", datiSalvati);
-		request.getRequestDispatcher("InsertUpdate.jsp").forward(request, response);
+		request.getRequestDispatcher("cities?thecountry=" + code).forward(request, response);
 	}
 }

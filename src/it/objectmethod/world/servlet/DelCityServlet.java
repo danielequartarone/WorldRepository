@@ -11,14 +11,15 @@ import it.objectmethod.world.model.dao.impl.CityDao;
 import it.objectmethod.world.model.domain.City;
 
 public class DelCityServlet extends HttpServlet{
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		int id = Integer.parseInt(request.getParameter("oggetto"));
-		String code = request.getParameter("oggetto2");
-		System.out.println("Ciao il mio id e:" + id);
-		CityDao ci = new CityDao();
-		ci.delCityByID(id);
-		request.getRequestDispatcher("cities?thecountry="+code).forward(request, response);
 		
+		int id = Integer.parseInt(request.getParameter("id"));
+		String code = request.getParameter("code");
+		CityDao cityD = new CityDao();
+		cityD.delCityByID(id);
+		request.getRequestDispatcher("cities?thecountry=" + code).forward(request, response);	
+	
 	}
 }

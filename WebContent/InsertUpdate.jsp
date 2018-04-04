@@ -15,29 +15,27 @@ td {align = "center"
 <body>
 	<div align="center">
 		<form action="insertUpdate">
+			<input type=hidden value=${citta.id} name="id">
 			<table border=1px>
 				<tr>
 					<th>Nome</th>
-					<th>Code</th>
+					<th>Stato</th>
 					<th>Population</th>
 				<tr>
-					<td><input type=text name="nome"></td>
+					<td><input type=text name="citta" value=${citta.name}></td>
 
 					<td><select name="code"><c:forEach
 								items="${countries}" var="tmp">
-								<option value=${tmp }>${tmp}
+								<option value=${tmp.code}>${tmp.name}
 							</c:forEach></select></td>
 
-					<td><input type=number name="popolazione" value = ${citta.population }></td>
+					<td><input type=number name="popolazione"
+						value=${citta.population}></td>
 
 				</tr>
 			</table>
-			<br> <input type="submit" value="salva"> <input
-				type=hidden value=${citta.id } name="id">
+			<br> <input type="submit" value="salva">
 		</form>
-
-		<p>${stringaSalvataggio}</p>
-		<br>
 	</div>
 </body>
 </html>

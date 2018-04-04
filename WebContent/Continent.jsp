@@ -20,10 +20,10 @@ table, th , td{
 	<th>Continent</th>
 </tr>
 
-<c:forEach items="${continent}" var="cont">
+<c:forEach items="${continent}" var="tmp">
 <tr>
 <td>
-<a href="/World/countries?thecontinent=${cont}"> ${cont} </a><br>
+<a href="/World/countries?thecontinent=${tmp}"> ${tmp} </a><br>
 </td>
 </tr>	 
 </c:forEach>
