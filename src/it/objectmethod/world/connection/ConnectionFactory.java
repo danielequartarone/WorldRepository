@@ -3,7 +3,7 @@ package it.objectmethod.world.connection;
 import java.sql.*;
 
 public class ConnectionFactory {
-	//ciao dani ho il tuo progetto
+	//ciao creo un conflitto
 
 	static final String driver_db = "com.mysql.jdbc.Driver";
 	static final String URL_db = "jdbc:mysql://localhost/world";
