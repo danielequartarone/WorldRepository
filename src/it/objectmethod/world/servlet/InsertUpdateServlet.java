@@ -29,23 +29,19 @@ public class InsertUpdateServlet extends HttpServlet{
 		
 		CityDao city = new CityDao();
 		
-		int buonFine;
-		String datiSalvati;
+		int buonFine = 0;
+		String datiSalvati = "Nessun dato salvato";
 		
 		if(id>0) {
-			
 			buonFine=city.updateCity(name, code, population, id);
 		}
 		else {
 			buonFine=city.insertCity(name, code, population);
 		}
 		
-		if(buonFine>0) {
+		if(buonFine > 0) {
 			datiSalvati = "Dati salvati correttamente";
 			
-		}
-		else {
-			datiSalvati = "Nessun dato salvato";
 		}
 		
 		
