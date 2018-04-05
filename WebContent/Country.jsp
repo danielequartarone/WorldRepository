@@ -24,7 +24,7 @@ table, th, td {
 			</tr>
 			<c:forEach items="${lista}" var="tmp">
 				<tr>
-					<td><a href="/World/cities?thecountry=${tmp.code}">
+					<td><a href="/World/cities?thecountry=${tmp.countryCode}">
 							${tmp.name}</a><br></td>
 				</tr>
 			</c:forEach>

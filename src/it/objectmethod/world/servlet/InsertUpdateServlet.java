@@ -1,6 +1,7 @@
 package it.objectmethod.world.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,14 +29,26 @@ public class InsertUpdateServlet extends HttpServlet{
 		
 		CityDao city = new CityDao();
 		
+		int buonFine;
+		String datiSalvati;
+		
 		if(id>0) {
-			city.updateCity(name, code, population, id); //TODO check se davvero effettuo update o insert, ps.executeUpdate ritorna int
+			
+			buonFine=city.updateCity(name, code, population, id);
 		}
 		else {
-			city.insertCity(name, code, population);
+			buonFine=city.insertCity(name, code, population);
 		}
 		
-		String datiSalvati = "Dati salvati correttamente";
+		if(buonFine>0) {
+			datiSalvati = "Dati salvati correttamente";
+			
+		}
+		else {
+			datiSalvati = "Nessun dato salvato";
+		}
+		
+		
 		request.setAttribute("stringaSalvataggio", datiSalvati);
 		request.getRequestDispatcher("cities?thecountry=" + code).forward(request, response);
 	}

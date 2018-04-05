@@ -2,16 +2,9 @@ package it.objectmethod.world.model.domain;
 
 public class City {
 	
-	private String name, code; //TODO refactoring code in countryCode
+	private String name, countryCode; 
 	private String population;
 	private int id;
-	
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
 	
 	public String getName() {
 		return name;
@@ -34,6 +27,13 @@ public class City {
 	
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public String getCountryCode() {
+		return countryCode;
+	}
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 	
 

@@ -26,7 +26,7 @@ td {align = "center"
 
 					<td><select name="code"><c:forEach
 								items="${countries}" var="tmp">
-								<option value=${tmp.code}>${tmp.name}
+								<option value=${tmp.countryCode }>${tmp.name}
 							</c:forEach></select></td>
 
 					<td><input type=number name="popolazione"

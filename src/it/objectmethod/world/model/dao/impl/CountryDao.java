@@ -24,14 +24,14 @@ public class CountryDao implements IDaoCountry{
 			while(rs.next()) {
 				Country cb = new Country();
 				cb.setName(rs.getString("Name"));
-				cb.setCode(rs.getString("Code"));
+				cb.setCountryCode(rs.getString("Code"));
 				cb.setContinent(rs.getString("Continent"));
 				countries.add(cb);
 			}
 			
-			conn.close();
-			ps.close();
 			rs.close();
+			ps.close();
+			conn.close();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -53,9 +53,10 @@ public class CountryDao implements IDaoCountry{
 				continents.add(continente);
 			}
 			
-			conn.close(); //TODO in ordine rs, state e conn
-			state.close();
+			
 			rs.close();
+			state.close();
+			conn.close();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -75,15 +76,15 @@ public class CountryDao implements IDaoCountry{
 			while(rs.next()) {
 				Country cb = new Country();
 				cb.setName(rs.getString("Name"));
-				cb.setCode(rs.getString("Code"));
+				cb.setCountryCode(rs.getString("Code"));
 				cb.setContinent(rs.getString("Continent"));
 				countries.add(cb);
 			}
 			
-			
-			conn.close();
-			state.close();
 			rs.close();
+			state.close();
+			conn.close();
+
 			
 		}catch(Exception e) {
 			e.printStackTrace();

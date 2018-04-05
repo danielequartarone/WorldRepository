@@ -3,7 +3,7 @@ package it.objectmethod.world.model.domain;
 public class Country {
 	
 	private String name;
-	private String code;
+	private String countryCode;
 	private String continent;
 	
 
@@ -23,11 +23,11 @@ public class Country {
 		this.name = name;
 	}
 
-	public String getCode() {
-		return code;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 }

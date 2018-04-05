@@ -36,11 +36,11 @@ table, th, td {
 
 					<td>${tmp.name}</td>
 					<td>${tmp.population }</td>
-					<td>${tmp.code}</td>
+					<td>${tmp.countryCode}</td>
 					<td>
 						<form action="delete">
 							<input type="hidden" value=${tmp.id } name="id"> <input
-								type="hidden" value=${tmp.code } name="code"> <input
+								type="hidden" value=${tmp.countryCode } name="code"> <input
 								type="submit" value="elimina">
 								
 						</form>

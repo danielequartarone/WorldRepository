@@ -14,7 +14,7 @@ import it.objectmethod.world.model.domain.City;
 public class CityDao implements IDaoCity {
 
 
-	public List<City> getCitiesByCountry(String countryCode) {//TODO chiudere rs, ps e conn
+	public List<City> getCitiesByCountry(String countryCode) {
 		
 		List<City> cities = new ArrayList<City>();
 		
@@ -34,11 +34,16 @@ public class CityDao implements IDaoCity {
 			while(rs.next()) {
 				City cb = new City();
 				cb.setName(rs.getString("name"));
-				cb.setCode(rs.getString("code"));
+				cb.setCountryCode(rs.getString("code"));
 				cb.setPopulation(rs.getString("population"));
 				cb.setId(rs.getInt("id"));
 				cities.add(cb);
 			}
+			
+			rs.close();
+			ps.close();
+			conn.close();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -61,7 +66,7 @@ public class CityDao implements IDaoCity {
 			while(rs.next()) {
 				citta.setName(rs.getString("Name"));
 				citta.setId(id);
-				citta.setCode(rs.getString("CountryCode"));
+				citta.setCountryCode(rs.getString("CountryCode"));
 				citta.setPopulation(rs.getString("Population"));
 			}
 		}catch(Exception e) {
@@ -93,7 +98,10 @@ public class CityDao implements IDaoCity {
 
 	}
 
-	public void updateCity(String nome, String code, int population, int id) {
+	public int updateCity(String nome, String code, int population, int id) {
+		
+		int risultato=0;
+		
 		try {
 			
 			Connection conn= ConnectionFactory.getConnection();
@@ -104,7 +112,7 @@ public class CityDao implements IDaoCity {
 			ps.setString(3, code.toUpperCase());
 			ps.setInt(2, population);
 			ps.setInt(4, id);
-			ps.executeUpdate();
+			risultato=ps.executeUpdate();
 
 			ps.close();
 			conn.close();
@@ -113,21 +121,22 @@ public class CityDao implements IDaoCity {
 			e.printStackTrace();
 		}
 
-
+		return risultato;
 	}
 
-	public void insertCity(String nome, String code, int population) {
+	public int insertCity(String nome, String code, int population) {
+		
+		int risultato = 0;
 		
 		try {
 
 			Connection conn= ConnectionFactory.getConnection();
 			String sql = "INSERT INTO city(City.name, city.countrycode, city.population) VALUES (?, ?, ?)";
-			System.out.println(code);
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, nome);
 			ps.setString(2, code);
 			ps.setInt(3, population);
-			ps.executeUpdate();
+			risultato=ps.executeUpdate();
 
 			ps.close();
 			conn.close();
@@ -135,6 +144,9 @@ public class CityDao implements IDaoCity {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+
+		return risultato;
+
 	}
 
 }
