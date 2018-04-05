@@ -1,6 +1,6 @@
 package it.objectmethod.world.model.dao;
 
-import java.sql.SQLException;
+
 import java.util.List;
 
 import it.objectmethod.world.model.domain.City;

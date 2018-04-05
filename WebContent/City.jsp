@@ -46,7 +46,7 @@ table, th, td {
 						</form>
 					<td>
 						<form action="editCity">
-							<input type="hidden" value=${tmp.id} name ="editThis"> <input
+							<input type="hidden" value=${tmp.id } name ="editThis"> <input
 								type="submit" value="edit">
 						</form>
 					</td>

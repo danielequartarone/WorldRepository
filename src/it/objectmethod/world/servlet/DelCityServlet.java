@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.objectmethod.world.model.dao.impl.CityDao;
-import it.objectmethod.world.model.domain.City;
+
 
 public class DelCityServlet extends HttpServlet{
 	

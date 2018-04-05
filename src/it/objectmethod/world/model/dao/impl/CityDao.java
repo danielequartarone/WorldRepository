@@ -3,7 +3,7 @@ package it.objectmethod.world.model.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +78,6 @@ public class CityDao implements IDaoCity {
 
 	public void delCityByID(int id) {
 		
-		int righeModificate=0;
 		
 		try {
 			Connection conn= ConnectionFactory.getConnection();
@@ -87,7 +86,7 @@ public class CityDao implements IDaoCity {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			
-			righeModificate=ps.executeUpdate();
+			ps.executeUpdate();
 			
 			ps.close();
 			conn.close();
